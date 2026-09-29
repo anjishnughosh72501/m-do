@@ -1,0 +1,77 @@
+/* Studio 3D Environment & Spatial Perspectives */
+
+.perspective-hallway {
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+}
+
+.perspective-studio {
+  perspective: 1000px;
+  perspective-origin: 50% 45%;
+  transform-style: preserve-3d;
+}
+
+.door-hinge {
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.monitor-frame {
+  position: relative;
+  background: #09090c;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  box-shadow: 
+    0 30px 100px -20px rgba(0, 0, 0, 0.8),
+    0 0 60px -10px var(--accent-glow, rgba(56, 189, 248, 0.25)),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.monitor-screen {
+  background: radial-gradient(circle at 50% 40%, rgba(20, 24, 35, 0.95), rgba(7, 8, 12, 0.98));
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* Subtle CRT monitor scanlines effect */
+.monitor-screen::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%);
+  background-size: 100% 4px;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+/* Studio ambient dynamic glow */
+.studio-ambient-glow {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  height: 60vh;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-glow, rgba(56, 189, 248, 0.25)) 0%, transparent 70%);
+  pointer-events: none;
+  filter: blur(80px);
+  opacity: var(--room-glow-opacity, 0.5);
+  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: background, opacity;
+}
+
+/* High-contrast reduced motion fallback */
+@media (prefers-reduced-motion: reduce) {
+  .door-hinge,
+  .studio-ambient-glow {
+    transition: none !important;
+    animation: none !important;
+  }
+}
