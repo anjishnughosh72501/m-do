@@ -28,7 +28,8 @@ export const StudioDoor: React.FC<StudioDoorProps> = ({
 
   // Direct Walk-In Camera Push:
   // Smoothly scales towards the open doorway opening (approx 49% horizontal, 47% vertical)
-  const cameraScale = 1 + effectiveEntryProgress * 3.8;
+  // Kept within smooth scaling range to eliminate texture pixelation
+  const cameraScale = 1 + effectiveEntryProgress * 2.3;
   const cameraOpacity = Math.max(0, 1 - effectiveEntryProgress * 1.3);
 
   // Status HUD dissolves immediately as user starts walking in
@@ -36,7 +37,7 @@ export const StudioDoor: React.FC<StudioDoorProps> = ({
 
   return (
     <div
-      className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden pointer-events-none z-20 transition-opacity duration-200 bg-black"
+      className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden pointer-events-none z-20 transition-opacity duration-200 bg-[#030407]"
       style={{
         transform: `scale(${cameraScale})`,
         opacity: cameraOpacity,
@@ -56,9 +57,18 @@ export const StudioDoor: React.FC<StudioDoorProps> = ({
             className="object-cover object-center"
           />
 
+          {/* Precision anti-banding vignette mask: smoothly dissolves compression noise into deep dark void */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(ellipse at 49% 47%, transparent 18%, rgba(6, 7, 12, 0.45) 35%, rgba(4, 5, 8, 0.85) 58%, #030407 78%, #000000 100%)",
+            }}
+          />
+
           {/* Vignette Gradients for seamless blend into pitch-black background */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-80" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#030407] via-transparent to-[#030407] opacity-80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#030407] via-transparent to-[#030407] opacity-80" />
 
           {/* Dynamic Musical Archetype Warm Light Tint */}
           <div
@@ -76,10 +86,10 @@ export const StudioDoor: React.FC<StudioDoorProps> = ({
             left: "50%",
             transform: "translate(-50%, 0)",
             width: "90%",
-            maxWidth: "460px",
+            maxWidth: "480px",
           }}
         >
-          <div className="w-full p-4 sm:p-5 rounded-2xl bg-[#0c0e17]/90 border border-white/20 shadow-2xl backdrop-blur-md space-y-3">
+          <div className="w-full p-4 sm:p-5 rounded-2xl bg-[#0a0d14]/92 border border-white/20 shadow-2xl backdrop-blur-md space-y-3">
             {/* Top Status Header */}
             <div className="flex items-center justify-between text-[11px] font-mono border-b border-white/10 pb-2.5">
               <span className="text-neutral-300 uppercase tracking-widest font-semibold flex items-center gap-2">
@@ -90,7 +100,7 @@ export const StudioDoor: React.FC<StudioDoorProps> = ({
                       : "bg-amber-400 animate-ping"
                   }`}
                 />
-                STUDIO CHAMBER 01
+                スタジオ空間 01 <span className="text-white/40">// CHAMBER 01</span>
               </span>
               <span
                 className={`px-2.5 py-0.5 rounded text-[10px] font-mono tracking-wider uppercase font-bold border ${
@@ -99,7 +109,7 @@ export const StudioDoor: React.FC<StudioDoorProps> = ({
                     : "text-amber-400 border-amber-500/40 bg-amber-500/15"
                 }`}
               >
-                {isReadyToEnter ? "UNLOCKED" : "LOCKED"}
+                {isReadyToEnter ? "解錠 // UNLOCKED" : "待機中 // STANDBY"}
               </span>
             </div>
 
@@ -112,7 +122,7 @@ export const StudioDoor: React.FC<StudioDoorProps> = ({
                   }`}
                 >
                   {isReadyToEnter
-                    ? "✓ ANALYSIS COMPLETE // READY TO ENTER"
+                    ? "✓ 解析完了 // READY TO ENTER"
                     : analysisStep}
                 </span>
                 <span className="text-neutral-400 font-mono text-[11px]">
@@ -125,7 +135,7 @@ export const StudioDoor: React.FC<StudioDoorProps> = ({
                 <div
                   className={`h-full transition-all duration-300 rounded-full ${
                     isReadyToEnter
-                      ? "w-full bg-emerald-400 shadow-[0_0_12px_#34d399]"
+                      ? "w-full bg-gradient-to-r from-emerald-500 to-teal-400 shadow-[0_0_12px_#34d399]"
                       : "bg-amber-400 animate-pulse"
                   }`}
                   style={!isReadyToEnter ? { width: `${analysisProgress}%` } : {}}
@@ -136,12 +146,12 @@ export const StudioDoor: React.FC<StudioDoorProps> = ({
             {/* Action Tagline */}
             <div className="pt-0.5 text-[11px] font-mono text-center">
               {isReadyToEnter ? (
-                <span className="text-emerald-300 font-semibold tracking-wider animate-pulse flex items-center justify-center gap-1.5">
-                  ACCESS GRANTED • SCROLL OR USE ↓ TO WALK IN
+                <span className="text-emerald-300 font-semibold tracking-wider animate-pulse flex items-center justify-center gap-1.5 font-sans">
+                  入室許可 • スクロールまたは ↓ キーで進む <span className="text-emerald-400/70 font-mono text-[10px]">(WALK IN)</span>
                 </span>
               ) : (
-                <span className="text-neutral-400 tracking-wider">
-                  HOLD POSITION • PREPARING ENVIRONMENT...
+                <span className="text-neutral-400 tracking-wider font-sans">
+                  環境準備中 • そのままお待ちください...
                 </span>
               )}
             </div>

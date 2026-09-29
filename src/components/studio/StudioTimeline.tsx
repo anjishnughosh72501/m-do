@@ -195,43 +195,43 @@ export const StudioTimeline: React.FC<StudioTimelineProps> = ({
 
   if (effectiveProgress < 0.18) {
     currentScene = 1;
-    sceneName = "STUDIO DOOR";
+    sceneName = "スタジオの扉 // STUDIO DOOR";
     activeSceneKey = "door";
   } else if (effectiveProgress < 0.44) {
     currentScene = 2;
-    sceneName = "SYSTEM BOOT";
+    sceneName = "システム起動 // SYSTEM BOOT";
     activeSceneKey = "boot";
   } else if (effectiveProgress < 0.54) {
     currentScene = 3;
-    sceneName = "LISTENING UNIVERSE";
+    sceneName = "音響宇宙 // LISTENING UNIVERSE";
     activeSceneKey = "universe";
   } else if (effectiveProgress < 0.62) {
     currentScene = 4;
-    sceneName = "GENRE CURRENTS";
+    sceneName = "ジャンル構成 // GENRE CURRENTS";
     activeSceneKey = "genres";
   } else if (effectiveProgress < 0.70) {
     currentScene = 5;
-    sceneName = "ARTIST AFFINITY";
+    sceneName = "アーティスト親和 // ARTIST AFFINITY";
     activeSceneKey = "artists";
   } else if (effectiveProgress < 0.78) {
     currentScene = 6;
-    sceneName = "EXPLORATION";
+    sceneName = "探求指数 // EXPLORATION";
     activeSceneKey = "exploration";
   } else if (effectiveProgress < 0.85) {
     currentScene = 7;
-    sceneName = "PERIOD SHIFTS";
+    sceneName = "時間的変遷 // PERIOD SHIFTS";
     activeSceneKey = "shifts";
   } else if (effectiveProgress < 0.91) {
     currentScene = 8;
-    sceneName = "PROFILE SYNTHESIS";
+    sceneName = "構造合成 // PROFILE SYNTHESIS";
     activeSceneKey = "radar";
   } else if (effectiveProgress < 0.975) {
     currentScene = 8;
-    sceneName = "ARCHETYPE REVEAL";
+    sceneName = "肖像顕現 // ARCHETYPE REVEAL";
     activeSceneKey = "reveal";
   } else {
     currentScene = 9;
-    sceneName = "IDENTITY DOSSIER";
+    sceneName = "音楽的肖像 // IDENTITY DOSSIER";
     activeSceneKey = "summary";
   }
 

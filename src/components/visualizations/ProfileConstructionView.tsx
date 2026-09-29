@@ -15,12 +15,12 @@ export const ProfileConstructionView: React.FC<ProfileConstructionViewProps> = (
 }) => {
   // 6 Primary Dimensional Axes for the Polygon Radar
   const axes = [
-    { key: "exploration", label: "EXPLORATION", value: dimensions.exploration },
-    { key: "genreDiversity", label: "GENRE DIVERSITY", value: dimensions.genreDiversity },
-    { key: "artistDiversity", label: "ARTIST SPREAD", value: dimensions.artistDiversity },
-    { key: "recentChange", label: "PERIOD SHIFT", value: dimensions.recentChange },
-    { key: "loyalty", label: "LOYALTY", value: dimensions.loyalty },
-    { key: "consistency", label: "CONSISTENCY", value: dimensions.listeningConsistency },
+    { key: "exploration", jp: "探求性", en: "EXPLORATION", value: dimensions.exploration },
+    { key: "genreDiversity", jp: "ジャンル多様", en: "DIVERSITY", value: dimensions.genreDiversity },
+    { key: "artistDiversity", jp: "作家分散", en: "SPREAD", value: dimensions.artistDiversity },
+    { key: "recentChange", jp: "変遷度", en: "SHIFT", value: dimensions.recentChange },
+    { key: "loyalty", jp: "忠誠度", en: "LOYALTY", value: dimensions.loyalty },
+    { key: "consistency", jp: "一貫性", en: "CONSISTENCY", value: dimensions.listeningConsistency },
   ];
 
   const center = 100;
@@ -63,10 +63,10 @@ export const ProfileConstructionView: React.FC<ProfileConstructionViewProps> = (
             className="w-2 h-2 rounded-full animate-ping"
             style={{ backgroundColor: accentColor }}
           />
-          06 // PROFILE SYNTHESIS
+          06 // 構造合成 <span className="text-white/40">// PROFILE SYNTHESIS</span>
         </span>
         <span className="text-cyan-400 font-bold bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-500/30 text-[11px] font-mono">
-          6-AXIS RADAR CONTOUR
+          六軸多角形レーダー // 6-AXIS RADAR
         </span>
       </motion.div>
 
@@ -197,7 +197,7 @@ export const ProfileConstructionView: React.FC<ProfileConstructionViewProps> = (
             transition={{ duration: 0.4 }}
             className="text-xs font-mono tracking-widest text-neutral-300 uppercase mb-2 font-semibold"
           >
-            SYNTHESIZED DIMENSIONS
+            構造次元スコア // SYNTHESIZED DIMENSIONS
           </motion.div>
           <div className="grid grid-cols-2 gap-2.5">
             {axes.map((axis, idx) => (
@@ -208,9 +208,14 @@ export const ProfileConstructionView: React.FC<ProfileConstructionViewProps> = (
                 transition={{ duration: 0.35, delay: 0.1 + idx * 0.06 }}
                 className="p-3 rounded-xl bg-[#131728] border border-white/20 shadow-md flex flex-col justify-between group hover:border-cyan-400/50 transition-colors"
               >
-                <span className="text-[11px] font-mono text-neutral-300 uppercase font-semibold">
-                  {axis.label}
-                </span>
+                <div>
+                  <span className="text-xs font-serifJp font-bold text-white block">
+                    {axis.jp}
+                  </span>
+                  <span className="text-[10px] font-mono text-neutral-400 uppercase">
+                    {axis.en}
+                  </span>
+                </div>
                 <span className="text-xl sm:text-2xl font-extrabold text-white font-mono mt-1">
                   {Math.round(axis.value)}
                 </span>
@@ -227,9 +232,9 @@ export const ProfileConstructionView: React.FC<ProfileConstructionViewProps> = (
         transition={{ duration: 0.4, delay: 0.5 }}
         className="border-t border-white/15 pt-3 text-xs text-neutral-300 font-mono flex items-center justify-between flex-shrink-0"
       >
-        <span>ARCHETYPE MATRIX CALCULATION: COMPLETE</span>
+        <span>肖像マトリクス算出: 完了 // SYNTHESIS COMPLETE</span>
         <span className="text-cyan-400 font-bold animate-pulse">
-          READY FOR IDENTITY REVEAL →
+          肖像顕現へ進む // REVEAL →
         </span>
       </motion.div>
     </div>

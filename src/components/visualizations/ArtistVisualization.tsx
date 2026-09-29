@@ -26,11 +26,12 @@ export const ArtistVisualization: React.FC<ArtistVisualizationProps> = ({
         transition={{ duration: 0.4 }}
         className="flex items-center justify-between text-xs font-mono text-neutral-300 border-b border-white/15 pb-3 flex-shrink-0"
       >
-        <span className="tracking-widest uppercase font-semibold text-white">
-          03 // ARTIST AFFINITY
+        <span className="tracking-widest uppercase font-semibold text-white flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-blue-400" />
+          03 // アーティスト親和 <span className="text-white/40">// ARTIST AFFINITY</span>
         </span>
         <div className="flex items-center gap-2 bg-blue-950/60 px-2.5 py-1 rounded border border-blue-500/30">
-          <span className="text-blue-300 text-xs">ARTIST LOYALTY:</span>
+          <span className="text-blue-300 text-xs font-sans">忠誠度指数 // LOYALTY:</span>
           <span className="text-white font-bold font-mono">
             {loyaltyScore} / 100
           </span>
@@ -45,7 +46,7 @@ export const ArtistVisualization: React.FC<ArtistVisualizationProps> = ({
           transition={{ duration: 0.4 }}
           className="text-xs font-mono tracking-widest text-cyan-400 uppercase font-semibold"
         >
-          THE ARTISTS YOU KEEP RETURNING TO
+          深く共鳴し続ける表現者 // THE ARTISTS YOU RETURN TO
         </motion.div>
 
         <div className="space-y-2">
@@ -76,7 +77,7 @@ export const ArtistVisualization: React.FC<ArtistVisualizationProps> = ({
                   0{idx + 1}
                 </span>
                 <div>
-                  <h3 className="text-base sm:text-lg font-black text-white tracking-tight leading-snug">
+                  <h3 className="text-base sm:text-lg font-bold text-white tracking-tight leading-snug">
                     {artist.name}
                   </h3>
                   <div className="text-xs text-neutral-300 font-mono capitalize">
@@ -94,11 +95,11 @@ export const ArtistVisualization: React.FC<ArtistVisualizationProps> = ({
                     color: accentColor,
                   }}
                 >
-                  TOP AFFINITY
+                  最重要親和 // TOP
                 </span>
               ) : (
                 <span className="text-[11px] font-mono text-neutral-400 opacity-60 group-hover:opacity-100 transition-opacity">
-                  AFFINITY RANK
+                  親和順位 0{idx + 1}
                 </span>
               )}
             </motion.div>
@@ -113,16 +114,14 @@ export const ArtistVisualization: React.FC<ArtistVisualizationProps> = ({
         transition={{ duration: 0.4, delay: 0.5 }}
         className="p-3.5 rounded-xl bg-[#111422] border border-white/15 text-xs sm:text-sm text-neutral-200 flex flex-col sm:flex-row sm:items-center justify-between gap-1 flex-shrink-0"
       >
-        <span>
-          Top 5 account for{" "}
-          <strong className="text-white font-bold">{artistProfile.top5Share}%</strong> of
-          identified track affinity.
-        </span>
-        <span className="italic text-cyan-300 font-medium">
+        <div>
+          上位5組で全親和性の <strong className="text-white font-bold">{artistProfile.top5Share}%</strong> を占有
+        </div>
+        <div className="italic text-cyan-300 font-medium font-sans">
           {loyaltyScore >= 60
-            ? "You return faithfully to familiar discographies."
-            : "You explore often, moving freely between creator catalogs."}
-        </span>
+            ? "馴染み深いディスコグラフィーへの深い忠誠と愛着を示しています。"
+            : "特定の枠にとらわれず、多数の創作者の宇宙を横断しています。"}
+        </div>
       </motion.div>
     </div>
   );

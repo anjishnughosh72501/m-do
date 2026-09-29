@@ -52,10 +52,10 @@ export const UniverseView: React.FC<UniverseViewProps> = ({ profile }) => {
       >
         <span className="tracking-widest uppercase font-semibold text-white flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
-          01 // LISTENING UNIVERSE
+          01 // 音響宇宙 <span className="text-white/40">// LISTENING UNIVERSE</span>
         </span>
         <span className="text-cyan-400 font-bold bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-500/30 font-mono text-[11px]">
-          AFFINITY HORIZON
+          聴覚地平 // AFFINITY HORIZON
         </span>
       </motion.div>
 
@@ -68,10 +68,10 @@ export const UniverseView: React.FC<UniverseViewProps> = ({ profile }) => {
           className="text-center sm:text-left"
         >
           <span className="text-xs font-mono tracking-widest text-cyan-400 uppercase font-semibold">
-            CATALOG HORIZON
+            カタログ全域 // CATALOG HORIZON
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-white mt-1 uppercase">
-            YOUR LISTENING UNIVERSE
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serifJp font-bold tracking-tight text-white mt-1">
+            あなたの音響宇宙
           </h2>
         </motion.div>
 
@@ -88,12 +88,12 @@ export const UniverseView: React.FC<UniverseViewProps> = ({ profile }) => {
               <span className="text-4xl sm:text-5xl font-black tracking-tight text-white font-mono">
                 <Counter value={profile.datasetSize.tracks} />
               </span>
-              <div className="mt-2 text-xs font-mono tracking-widest uppercase font-semibold text-cyan-300 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/20 inline-block">
-                TOP TRACKS
+              <div className="mt-2 text-xs font-mono tracking-widest uppercase font-semibold text-cyan-300 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/20 block">
+                トラック // TOP TRACKS
               </div>
             </div>
             <span className="mt-2 text-xs text-neutral-400 font-sans">
-              Ranked by Spotify affinity
+              Spotify親和性による集計
             </span>
           </motion.div>
 
@@ -108,12 +108,12 @@ export const UniverseView: React.FC<UniverseViewProps> = ({ profile }) => {
               <span className="text-4xl sm:text-5xl font-black tracking-tight text-white font-mono">
                 <Counter value={profile.datasetSize.artists} />
               </span>
-              <div className="mt-2 text-xs font-mono tracking-widest uppercase font-semibold text-purple-300 bg-purple-950/60 px-2 py-0.5 rounded border border-purple-500/20 inline-block">
-                ARTISTS
+              <div className="mt-2 text-xs font-mono tracking-widest uppercase font-semibold text-purple-300 bg-purple-950/60 px-2 py-0.5 rounded border border-purple-500/20 block">
+                アーティスト // ARTISTS
               </div>
             </div>
             <span className="mt-2 text-xs text-neutral-400 font-sans">
-              In active rotation
+              アクティブな回転構成
             </span>
           </motion.div>
 
@@ -128,12 +128,12 @@ export const UniverseView: React.FC<UniverseViewProps> = ({ profile }) => {
               <span className="text-4xl sm:text-5xl font-black tracking-tight text-emerald-400 font-mono">
                 <Counter value={profile.datasetSize.genres} />
               </span>
-              <div className="mt-2 text-xs font-mono tracking-widest uppercase font-semibold text-emerald-300 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/20 inline-block">
-                GENRE FAMILIES
+              <div className="mt-2 text-xs font-mono tracking-widest uppercase font-semibold text-emerald-300 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/20 block">
+                ジャンル系列 // GENRES
               </div>
             </div>
             <span className="mt-2 text-xs text-neutral-400 font-sans">
-              Distinct sonic landscapes
+              固有の音響ランドスケープ
             </span>
           </motion.div>
         </div>
@@ -151,8 +151,8 @@ export const UniverseView: React.FC<UniverseViewProps> = ({ profile }) => {
 
       {/* Footer Info */}
       <div className="border-t border-white/15 pt-3 text-xs text-neutral-400 font-mono flex items-center justify-between flex-shrink-0">
-        <span>SPOTIFY DATA NORMALIZATION: VERIFIED</span>
-        <span className="text-cyan-400">STAGE 01 COMPLETE</span>
+        <span>正規化検証: 完了 // DATA VERIFIED</span>
+        <span className="text-cyan-400">第1段階 完了 // STAGE 01 COMPLETE</span>
       </div>
     </div>
   );

@@ -55,10 +55,10 @@ export const ExplorationView: React.FC<ExplorationViewProps> = ({
       >
         <span className="tracking-widest uppercase font-semibold text-white flex items-center gap-2">
           <span className="w-2 h-2 rounded-full animate-ping" style={{ backgroundColor: accentColor }} />
-          04 // EXPLORATION INDEX
+          04 // 探求指数 <span className="text-white/40">// EXPLORATION INDEX</span>
         </span>
         <span className="text-cyan-400 font-bold bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-500/30 text-[11px] font-mono">
-          DISCOVERY CAPACITY
+          発見領域 // DISCOVERY CAPACITY
         </span>
       </motion.div>
 
@@ -73,7 +73,7 @@ export const ExplorationView: React.FC<ExplorationViewProps> = ({
               transition={{ duration: 0.4 }}
               className="text-xs font-mono tracking-widest text-cyan-400 uppercase font-semibold"
             >
-              EXPLORATION SCORE
+              探求スコア // EXPLORATION SCORE
             </motion.div>
             <div className="flex items-baseline gap-2 mt-1">
               <motion.span
@@ -95,10 +95,10 @@ export const ExplorationView: React.FC<ExplorationViewProps> = ({
             transition={{ duration: 0.5, delay: 0.2 }}
             className="max-w-xs text-left sm:text-right"
           >
-            <h3 className="text-lg sm:text-xl font-bold text-white uppercase tracking-tight">
+            <h3 className="text-base sm:text-lg font-serifJp font-bold text-white tracking-tight">
               {profile.explorationScore >= 75
-                ? "Your music keeps moving."
-                : "Your sound has settled in."}
+                ? "音響の境界を越え、流動を続ける"
+                : "深みのある確立された領域に定住する"}
             </h3>
             <p className="text-xs sm:text-sm text-neutral-300 mt-1.5 leading-relaxed font-sans">
               {profile.insights.explorationNote}
@@ -115,7 +115,7 @@ export const ExplorationView: React.FC<ExplorationViewProps> = ({
             className="p-4 rounded-xl bg-[#141829] border border-white/15 shadow-md flex justify-between items-center sm:flex-col sm:items-start group hover:border-purple-400/50 transition-colors"
           >
             <span className="text-xs text-purple-300 font-mono uppercase font-semibold bg-purple-950/60 px-2 py-0.5 rounded border border-purple-500/20">
-              Genre Diversity
+              ジャンル多様性 // DIVERSITY
             </span>
             <span className="text-2xl sm:text-3xl font-extrabold text-white font-mono mt-2">
               {Math.round(profile.dimensions.genreDiversity)}%
@@ -129,7 +129,7 @@ export const ExplorationView: React.FC<ExplorationViewProps> = ({
             className="p-4 rounded-xl bg-[#141829] border border-white/15 shadow-md flex justify-between items-center sm:flex-col sm:items-start group hover:border-blue-400/50 transition-colors"
           >
             <span className="text-xs text-blue-300 font-mono uppercase font-semibold bg-blue-950/60 px-2 py-0.5 rounded border border-blue-500/20">
-              Artist Spread
+              アーティスト分散 // SPREAD
             </span>
             <span className="text-2xl sm:text-3xl font-extrabold text-white font-mono mt-2">
               {Math.round(profile.dimensions.artistDiversity)}%
@@ -143,7 +143,7 @@ export const ExplorationView: React.FC<ExplorationViewProps> = ({
             className="p-4 rounded-xl bg-[#141829] border border-white/15 shadow-md flex justify-between items-center sm:flex-col sm:items-start group hover:border-amber-400/50 transition-colors"
           >
             <span className="text-xs text-amber-300 font-mono uppercase font-semibold bg-amber-950/60 px-2 py-0.5 rounded border border-amber-500/20">
-              Recent Shift
+              直近の変遷 // RECENT SHIFT
             </span>
             <span className="text-2xl sm:text-3xl font-extrabold text-white font-mono mt-2">
               {Math.round(profile.dimensions.recentChange)}%
@@ -159,8 +159,8 @@ export const ExplorationView: React.FC<ExplorationViewProps> = ({
         transition={{ duration: 0.4, delay: 0.5 }}
         className="border-t border-white/15 pt-3 text-xs text-neutral-400 font-mono flex items-center justify-between flex-shrink-0"
       >
-        <span>METRIC: MULTI-PARAMETRIC ENTROPY + TURNOVER</span>
-        <span className="text-emerald-400">STATUS: VERIFIED</span>
+        <span>指標: 多変数エントロピー + ターンオーバー // METRIC VERIFIED</span>
+        <span className="text-emerald-400">確定論的解析 // DETERMINISTIC</span>
       </motion.div>
     </div>
   );

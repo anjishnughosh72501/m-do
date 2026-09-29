@@ -37,7 +37,7 @@ export const ArchetypeRevealView: React.FC<ArchetypeRevealViewProps> = ({
             className="w-2 h-2 rounded-full animate-ping"
             style={{ backgroundColor: accentColor }}
           />
-          07 // CLASSIFICATION REVEAL
+          07 // 肖像顕現 <span className="text-white/40">// IDENTITY REVEAL</span>
         </span>
         <span
           className="font-bold px-2.5 py-0.5 rounded border text-[11px] font-mono tracking-wider uppercase"
@@ -47,7 +47,7 @@ export const ArchetypeRevealView: React.FC<ArchetypeRevealViewProps> = ({
             backgroundColor: `${accentColor}18`,
           }}
         >
-          IDENTITY DISTILLATION
+          同一性の抽出 // DISTILLATION
         </span>
       </motion.div>
 
@@ -71,13 +71,13 @@ export const ArchetypeRevealView: React.FC<ArchetypeRevealViewProps> = ({
                 }}
               />
               <span className="text-xs font-mono tracking-widest text-cyan-400 uppercase font-semibold block">
-                SIGNAL ISOLATED // COHERENCE 99.4%
+                音響信号捕捉 // SIGNAL ISOLATED (99.4%)
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white leading-none">
-                WE FOUND A PATTERN.
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serifJp font-bold tracking-tight text-white leading-tight">
+                固有の音響傾向を<br />検出しました。
               </h2>
-              <p className="text-xs sm:text-sm text-neutral-400 font-mono tracking-wide max-w-xs mx-auto">
-                Scroll to decode your musical fingerprint
+              <p className="text-xs sm:text-sm text-neutral-400 font-sans tracking-wide max-w-xs mx-auto">
+                スクロールして、あなたの音楽的指紋を解読します
               </p>
             </motion.div>
           )}
@@ -99,13 +99,13 @@ export const ArchetypeRevealView: React.FC<ArchetypeRevealViewProps> = ({
                 }}
               />
               <span className="text-xs font-mono tracking-widest text-purple-400 uppercase font-semibold block">
-                CONVERGENCE VERIFIED
+                収束検証 // CONVERGENCE VERIFIED
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white leading-none">
-                YOUR MUSIC HAS A TYPE.
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serifJp font-bold tracking-tight text-white leading-tight">
+                あなたには確固たる<br />「型」が存在します。
               </h2>
-              <p className="text-xs sm:text-sm text-neutral-400 font-mono tracking-wide max-w-xs mx-auto">
-                Synthesizing multidimensional listening profile...
+              <p className="text-xs sm:text-sm text-neutral-400 font-sans tracking-wide max-w-xs mx-auto">
+                多次元聴覚プロファイルの合成中...
               </p>
             </motion.div>
           )}
@@ -127,17 +127,20 @@ export const ArchetypeRevealView: React.FC<ArchetypeRevealViewProps> = ({
                 }}
               />
               <span className="text-xs font-mono tracking-widest text-amber-400 uppercase font-bold block">
-                DISTILLATION COMPLETE
+                同一性蒸留 // DISTILLATION COMPLETE
               </span>
               <h2
-                className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter uppercase leading-none drop-shadow-2xl"
+                className="text-4xl sm:text-6xl md:text-7xl font-serifJp font-bold tracking-tight leading-none drop-shadow-2xl"
                 style={{
                   color: "#ffffff",
                   textShadow: `0 0 40px ${accentColor}88`,
                 }}
               >
-                YOU ARE
+                汝の音楽的肖像
               </h2>
+              <span className="text-xs font-mono tracking-widest text-white/50 block">
+                // YOU ARE
+              </span>
             </motion.div>
           )}
 
@@ -181,17 +184,17 @@ export const ArchetypeRevealView: React.FC<ArchetypeRevealViewProps> = ({
                   />
                 </svg>
                 <span
-                  className="text-2xl sm:text-3xl font-black tracking-tight"
+                  className="text-2xl sm:text-3xl font-serifJp font-bold tracking-tight"
                   style={{ color: accentColor }}
                 >
-                  {archetype.title.split(" ")[1]?.[0] || archetype.title[0] || "E"}
+                  {archetype.title.split(" ")[1]?.[0] || archetype.title[0] || "響"}
                 </span>
               </div>
 
               {/* Archetype Landmark Title */}
               <div>
                 <span className="text-[11px] font-mono tracking-widest text-cyan-300 uppercase font-semibold">
-                  YOUR MUSICAL ARCHETYPE
+                  音楽的肖像 // MUSICAL ARCHETYPE
                 </span>
                 <h1
                   className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight uppercase mt-0.5 drop-shadow-md"
@@ -207,14 +210,14 @@ export const ArchetypeRevealView: React.FC<ArchetypeRevealViewProps> = ({
               {/* Secondary Influence Badge */}
               {secondaryArchetype && (
                 <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-[#15192c] border border-white/20 text-xs font-mono text-neutral-200 shadow-sm">
-                  <span>WITH AN</span>
+                  <span>副次的影響:</span>
                   <span
                     className="font-extrabold"
                     style={{ color: secondaryArchetype.visualProfile.accent }}
                   >
                     {secondaryArchetype.title}
                   </span>
-                  <span>INFLUENCE</span>
+                  <span className="text-white/40">// INFLUENCE</span>
                 </div>
               )}
 
@@ -223,11 +226,11 @@ export const ArchetypeRevealView: React.FC<ArchetypeRevealViewProps> = ({
                 {archetype.description}
               </p>
 
-              {/* Surfaced Archetype Strengths (Fixes Audit P2-1) */}
+              {/* Surfaced Archetype Strengths */}
               {archetype.strengths && archetype.strengths.length > 0 && (
                 <div className="w-full pt-1 space-y-1.5 border-t border-white/10">
                   <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 font-semibold block text-left sm:text-center">
-                    CORE LISTENING STRENGTHS
+                    固有の音楽的強み // CORE STRENGTHS
                   </span>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-left">
                     {archetype.strengths.map((strength, i) => (
@@ -260,7 +263,7 @@ export const ArchetypeRevealView: React.FC<ArchetypeRevealViewProps> = ({
         transition={{ duration: 0.4, delay: 0.5 }}
         className="border-t border-white/15 pt-3 text-xs text-neutral-400 font-mono flex-shrink-0"
       >
-        ORIGINAL MŪDO DETERMINISTIC CLASSIFIER // ムード // ZERO AI HALLUCINATION
+        mūdo (ムード) 確定論的分類エンジン // DETERMINISTIC // 外部AI推論ゼロ
       </motion.div>
     </div>
   );

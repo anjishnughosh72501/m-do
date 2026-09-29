@@ -24,11 +24,12 @@ export const GenreVisualization: React.FC<GenreVisualizationProps> = ({
         transition={{ duration: 0.4 }}
         className="flex items-center justify-between text-xs font-mono text-neutral-300 border-b border-white/15 pb-3 flex-shrink-0"
       >
-        <span className="tracking-widest uppercase font-semibold text-white">
-          02 // GENRE COMPOSITION
+        <span className="tracking-widest uppercase font-semibold text-white flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-purple-400" />
+          02 // ジャンル構成 <span className="text-white/40">// GENRE COMPOSITION</span>
         </span>
         <div className="flex items-center gap-2 bg-purple-950/60 px-2.5 py-1 rounded border border-purple-500/30">
-          <span className="text-purple-300 text-xs">GENRE DIVERSITY:</span>
+          <span className="text-purple-300 text-xs font-sans">多様性指数 // DIVERSITY:</span>
           <span className="text-white font-bold font-mono">
             {Math.round(genreProfile.genreDiversity)} / 100
           </span>
@@ -71,7 +72,7 @@ export const GenreVisualization: React.FC<GenreVisualizationProps> = ({
               className="relative z-10 w-24 h-24 rounded-full border-2 border-cyan-400 bg-[#14192b] flex flex-col items-center justify-center text-center p-2 shadow-2xl shadow-cyan-500/20"
             >
               <span className="text-[10px] font-mono tracking-widest text-cyan-300 uppercase font-semibold">
-                DOMINANT
+                主軸 // CORE
               </span>
               <span className="text-xs font-bold text-white truncate max-w-full mt-0.5">
                 {genreProfile.dominantGenre.displayName}
@@ -119,9 +120,10 @@ export const GenreVisualization: React.FC<GenreVisualizationProps> = ({
             initial={{ opacity: 0, x: 10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
-            className="text-xs font-mono tracking-widest text-neutral-300 uppercase mb-2 font-semibold"
+            className="text-xs font-mono tracking-widest text-neutral-300 uppercase mb-2 font-semibold flex items-center justify-between"
           >
-            TOP GENRE FAMILIES
+            <span>主要ジャンル系列 // TOP FAMILIES</span>
+            <span className="text-[10px] text-white/40 font-normal">構成比率</span>
           </motion.div>
           {topGenres.map((genre, i) => (
             <motion.div
@@ -164,16 +166,12 @@ export const GenreVisualization: React.FC<GenreVisualizationProps> = ({
         className="p-3.5 rounded-xl bg-[#111422] border border-white/15 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs sm:text-sm text-neutral-200 flex-shrink-0"
       >
         <div>
-          Identified across{" "}
-          <span className="text-white font-bold">
-            {genreProfile.genreCount} genre families
-          </span>
-          .
+          合計 <span className="text-white font-bold">{genreProfile.genreCount} 系列</span>のジャンルを識別 // {genreProfile.genreCount} GENRE FAMILIES
         </div>
-        <div className="text-cyan-300 font-medium italic">
+        <div className="text-cyan-300 font-medium font-sans">
           {genreProfile.genreDiversity > 75
-            ? "Your listening rarely stays in a single lane."
-            : "Your rotation maintains focused sonic cohesion."}
+            ? "極めて多様性に富み、ジャンルの境界を軽やかに越境しています。"
+            : "特定の美学と音響世界に深く根ざした結束力を示しています。"}
         </div>
       </motion.div>
     </div>

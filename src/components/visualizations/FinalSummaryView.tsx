@@ -26,14 +26,14 @@ export const FinalSummaryView: React.FC<FinalSummaryViewProps> = ({
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
           <span className="tracking-widest uppercase font-semibold text-white">
-            08 // MŪDO IDENTITY DOSSIER (ムード)
+            08 // 音楽的肖像調書 <span className="text-white/40">// MŪDO DOSSIER</span>
           </span>
         </div>
         <button
           onClick={onDisconnect}
           className="text-neutral-400 hover:text-white text-xs underline underline-offset-4 transition-colors cursor-pointer font-sans"
         >
-          Disconnect Spotify
+          連携解除 // Disconnect
         </button>
       </div>
 
@@ -43,7 +43,7 @@ export const FinalSummaryView: React.FC<FinalSummaryViewProps> = ({
         <div className="p-4 sm:p-5 rounded-2xl bg-[#121626] border border-white/20 shadow-xl flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
           <div>
             <span className="text-xs font-mono tracking-widest text-cyan-400 uppercase font-semibold">
-              FINAL MUSIC ARCHETYPE
+              最終確定 音楽的肖像 // FINAL ARCHETYPE
             </span>
             <h1
               className="text-3xl sm:text-4xl font-extrabold tracking-tight uppercase mt-0.5"
@@ -56,7 +56,7 @@ export const FinalSummaryView: React.FC<FinalSummaryViewProps> = ({
             </p>
           </div>
           <div className="text-xs font-mono text-neutral-300 bg-black/40 px-3 py-1.5 rounded-lg border border-white/10 self-start sm:self-auto flex-shrink-0">
-            {profile.datasetSize.artists} ARTISTS • {profile.datasetSize.genres} GENRES • {profile.datasetSize.tracks} TRACKS
+            {profile.datasetSize.artists} アーティスト • {profile.datasetSize.genres} ジャンル • {profile.datasetSize.tracks} 曲
           </div>
         </div>
 
@@ -67,7 +67,7 @@ export const FinalSummaryView: React.FC<FinalSummaryViewProps> = ({
               {profile.explorationScore}
             </span>
             <div className="text-xs font-mono uppercase font-semibold text-cyan-300 mt-2 bg-cyan-950/60 py-0.5 rounded border border-cyan-500/20">
-              Exploration
+              探求性 // EXPLORE
             </div>
           </div>
 
@@ -76,7 +76,7 @@ export const FinalSummaryView: React.FC<FinalSummaryViewProps> = ({
               {Math.round(profile.dimensions.genreDiversity)}
             </span>
             <div className="text-xs font-mono uppercase font-semibold text-purple-300 mt-2 bg-purple-950/60 py-0.5 rounded border border-purple-500/20">
-              Genre Spread
+              多様性 // DIVERSITY
             </div>
           </div>
 
@@ -85,7 +85,7 @@ export const FinalSummaryView: React.FC<FinalSummaryViewProps> = ({
               {profile.loyaltyScore}
             </span>
             <div className="text-xs font-mono uppercase font-semibold text-blue-300 mt-2 bg-blue-950/60 py-0.5 rounded border border-blue-500/20">
-              Loyalty Index
+              忠誠度 // LOYALTY
             </div>
           </div>
 
@@ -94,16 +94,16 @@ export const FinalSummaryView: React.FC<FinalSummaryViewProps> = ({
               {profile.recentChangeScore}
             </span>
             <div className="text-xs font-mono uppercase font-semibold text-amber-300 mt-2 bg-amber-950/60 py-0.5 rounded border border-amber-500/20">
-              Recent Shift
+              変遷度 // SHIFT
             </div>
           </div>
         </div>
 
-        {/* Core Archetype Strengths (Fixes Audit P2-1) */}
+        {/* Core Archetype Strengths */}
         {profile.archetype.strengths && profile.archetype.strengths.length > 0 && (
           <div className="p-3.5 rounded-xl bg-[#101322] border border-white/15 space-y-2">
             <span className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase font-semibold block text-left">
-              DISTILLED LISTENING SUPERPOWERS
+              抽出された固有の音楽的特性 // DISTILLED SUPERPOWERS
             </span>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-left">
               {profile.archetype.strengths.map((str, i) => (
@@ -124,7 +124,7 @@ export const FinalSummaryView: React.FC<FinalSummaryViewProps> = ({
 
         {/* Narrative Insight Box */}
         <div className="p-4 sm:p-5 rounded-2xl bg-[#121626] border border-white/20 shadow-xl text-sm text-neutral-200 leading-relaxed font-sans space-y-2">
-          <p className="font-bold text-white text-base">
+          <p className="font-bold text-white text-base font-serifJp">
             {profile.insights.headline}
           </p>
           <p className="text-neutral-300 text-xs sm:text-sm">
@@ -142,17 +142,17 @@ export const FinalSummaryView: React.FC<FinalSummaryViewProps> = ({
           variant="primary"
           size="md"
           onClick={onAnalyzeAnother}
-          className="w-full sm:w-auto font-semibold bg-white/15 hover:bg-white/25 border-white/30"
+          className="w-full sm:w-auto font-serifJp text-xs sm:text-sm bg-white/15 hover:bg-white/25 border-white/30"
         >
-          Analyze Another Period
+          別の期間を解析する // ANALYZE ANOTHER
         </GlassButton>
         <GlassButton
           variant="secondary"
           size="md"
           onClick={onRunAgain}
-          className="w-full sm:w-auto font-medium"
+          className="w-full sm:w-auto font-serifJp text-xs sm:text-sm"
         >
-          Run Experience Again
+          最初から再体験 // REPLAY
         </GlassButton>
       </div>
     </div>

@@ -31,23 +31,23 @@
 }
 
 .monitor-screen {
-  background: radial-gradient(circle at 50% 40%, rgba(20, 24, 35, 0.95), rgba(7, 8, 12, 0.98));
+  background: radial-gradient(circle at 50% 35%, rgba(18, 22, 34, 0.96), rgba(6, 7, 12, 0.99));
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Subtle CRT monitor scanlines effect */
+/* Crystal-clear HD screen edge vignette without pixel grain */
 .monitor-screen::after {
-  content: " ";
+  content: "";
   display: block;
   position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%);
-  background-size: 100% 4px;
+  inset: 0;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.6);
   z-index: 20;
   pointer-events: none;
-  opacity: 0.35;
 }
 
 /* Studio ambient dynamic glow */

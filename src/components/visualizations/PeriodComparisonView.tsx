@@ -39,14 +39,14 @@ export const PeriodComparisonView: React.FC<PeriodComparisonViewProps> = ({
     },
   ];
 
-  const rangeLabels: Record<string, string> = {
-    short_term: "Last Month",
-    medium_term: "Last 6 Months",
-    long_term: "Last Year",
+  const rangeLabels: Record<string, { jp: string; en: string }> = {
+    short_term: { jp: "直近4週間", en: "Last Month" },
+    medium_term: { jp: "過去6ヶ月", en: "Last 6 Months" },
+    long_term: { jp: "通年基準", en: "Last Year" },
   };
 
-  const baseLabel = comparison ? rangeLabels[comparison.baseRange] || "Recent" : "Last Month";
-  const targetLabel = comparison ? rangeLabels[comparison.targetRange] || "Baseline" : "Last Year";
+  const baseLabel = comparison ? rangeLabels[comparison.baseRange] || { jp: "観測期間", en: "Recent" } : { jp: "直近4週間", en: "Last Month" };
+  const targetLabel = comparison ? rangeLabels[comparison.targetRange] || { jp: "過去基準", en: "Baseline" } : { jp: "通年基準", en: "Last Year" };
 
   return (
     <div className="w-full h-full flex flex-col justify-between text-white font-sans">
@@ -57,11 +57,12 @@ export const PeriodComparisonView: React.FC<PeriodComparisonViewProps> = ({
         transition={{ duration: 0.4 }}
         className="flex items-center justify-between text-xs font-mono text-neutral-300 border-b border-white/15 pb-3 flex-shrink-0"
       >
-        <span className="tracking-widest uppercase font-semibold text-white">
-          05 // TEMPORAL DRIFT
+        <span className="tracking-widest uppercase font-semibold text-white flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-amber-400" />
+          05 // 時間的変遷 <span className="text-white/40">// TEMPORAL DRIFT</span>
         </span>
         <div className="flex items-center gap-2 bg-amber-950/60 px-2.5 py-1 rounded border border-amber-500/30">
-          <span className="text-amber-300 text-xs font-semibold">PERIOD SHIFT:</span>
+          <span className="text-amber-300 text-xs font-sans">変遷指数 // SHIFT:</span>
           <span className="text-white font-bold font-mono">
             {recentChangeScore} / 100
           </span>
@@ -77,12 +78,12 @@ export const PeriodComparisonView: React.FC<PeriodComparisonViewProps> = ({
           className="p-4 rounded-xl bg-[#121626] border border-white/15 shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-2"
         >
           <div>
-            <h2 className="text-lg sm:text-xl font-bold text-white tracking-tight uppercase">
-              {comparison?.headline || "YOUR SOUND IS SHIFTING"}
+            <h2 className="text-lg sm:text-xl font-serifJp font-bold text-white tracking-tight">
+              音響軌道の動的変遷 // TEMPORAL SHIFT
             </h2>
             <div className="text-xs font-mono text-neutral-300 mt-0.5">
-              COMPARING: <span className="text-cyan-400 font-semibold">{baseLabel.toUpperCase()}</span> vs{" "}
-              <span className="text-neutral-400">{targetLabel.toUpperCase()}</span>
+              対比軸: <span className="text-cyan-400 font-semibold">{baseLabel.jp} ({baseLabel.en})</span> vs{" "}
+              <span className="text-neutral-400">{targetLabel.jp} ({targetLabel.en})</span>
             </div>
           </div>
         </motion.div>
