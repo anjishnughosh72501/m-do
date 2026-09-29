@@ -19,7 +19,9 @@ import { ArchetypeRevealView } from "../visualizations/ArchetypeRevealView";
 import { FinalSummaryView } from "../visualizations/FinalSummaryView";
 import { ProgressIndicator } from "./ProgressIndicator";
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 interface StudioTimelineProps {
   profile: MusicProfile;

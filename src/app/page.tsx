@@ -19,11 +19,19 @@ import {
   fetchCurrentUser,
   fetchListeningDataset,
 } from "@/features/spotify/client";
+import dynamic from "next/dynamic";
 import { LandingView } from "@/components/studio/LandingView";
 import { RangeSelectorView } from "@/components/studio/RangeSelectorView";
-import { StudioTimeline } from "@/components/studio/StudioTimeline";
 import { PrivacyModal } from "@/components/PrivacyModal";
 import { DemoPersonaSelector } from "@/components/studio/DemoPersonaSelector";
+
+const StudioTimeline = dynamic(
+  () =>
+    import("@/components/studio/StudioTimeline").then(
+      (mod) => mod.StudioTimeline
+    ),
+  { ssr: false }
+);
 
 export default function Home() {
   const [view, setView] = useState<"landing" | "range" | "studio">("landing");
